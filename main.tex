@@ -1,0 +1,49 @@
+\documentclass[a4paper,12pt]{book}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtext}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ukrainian]{babel}
+\usepackage{graphicx}
+\usepackage{wasysym}
+\usepackage[dvipsnames]{xcolor}
+
+\newcounter{problem}[chapter]
+\newcommand{\problem}{%
+    \medskip\medskip%
+    \par\noindent\addtocounter{problem}{1}%
+    \textbf{\large\color{Bittersweet}\arabic{chapter}.\arabic{problem}. }%
+}
+
+\newenvironment{dialogue}{%
+    \list{--}{\itemsep=\parskip \topsep=\parskip \parsep=\parskip}%
+}{\endlist}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+\author{
+    Сашко Петров\\
+    \texttt{alexandervpetrov@gmail.com}
+    \and
+    Валентина Мержиєвська\\
+    \texttt{yakavoska@gmail.com}
+}
+\title{4x40}
+\date{2 грудня 2015}
+
+\frontmatter
+\maketitle
+\tableofcontents
+\mainmatter
+\include{src/preface}
+\include{src/1}
+\include{src/2}
+\include{src/3}
+\include{src/4}
+\backmatter
+% bibliography, glossary and index would go here.
+
+\end{document}
