@@ -19,8 +19,12 @@
 }
 
 \newenvironment{dialogue}{%
+    \medskip%
     \list{--}{\itemsep=\parskip \topsep=\parskip \parsep=\parskip}%
-}{\endlist}
+}{
+    \endlist%
+    \medskip%
+}
 
 \renewcommand{\arraystretch}{1.5}
 
