@@ -10,26 +10,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{multicol}
 \usepackage{hyperref}
-
-
-\newcounter{problem}[chapter]
-\newcommand{\problem}{%
-    \medskip\medskip%
-    \par\noindent\addtocounter{problem}{1}%
-    \textbf{\large\color{Bittersweet}\arabic{chapter}.\arabic{problem}. }%
-}
-
-\newcommand{\problemname}[1]{\textbf{#1}.}
-
-\newenvironment{dialogue}{%
-    \medskip%
-    \list{--}{\itemsep=\parskip \topsep=\parskip \parsep=\parskip}%
-}{
-    \endlist%
-    \medskip%
-}
-
-\renewcommand{\arraystretch}{1.5}
+\usepackage{berkoschool}
 
 
 \begin{document}
