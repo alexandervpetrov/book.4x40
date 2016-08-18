@@ -1,40 +1,138 @@
-\documentclass[a4paper,12pt]{book}
+\documentclass[\OPTfontsize]{book}
+
+% Base setup
 
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{mathtext}
 \usepackage[T1,T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[ukrainian]{babel}
+
+% Page geometry
+
+\usepackage[
+  papersize={\OPTpagesize},
+  twoside,
+%  includehead,
+  top=\OPTtopmargin,
+  bottom=\OPTbottommargin,
+  inner=\OPTinnermargin,
+  outer=\OPToutermargin,
+  bindingoffset=\OPTbindingoffset,
+  headheight=\OPTheadheight,
+  headsep=\OPTheadsep,
+%  showframe
+]{geometry}
+
+% Colors & PDF
+
+\usepackage[dvipsnames,table]{xcolor}
+%\definecolor{linkcolor}{rgb}{\OPTlinkcolor}
+
+\usepackage[pdfencoding=unicode]{hyperref}
+\hypersetup{
+  colorlinks,
+%  citecolor=linkcolor,
+%  linkcolor=linkcolor,
+%  urlcolor=linkcolor,
+  unicode,
+  pdfauthor={Сашко Петров, Валентина Мержиєвська},
+  pdftitle={4 x 40},
+  pdfsubject={Математика},
+  pdfkeywords={математика, задачник, школа, діти}
+}
+\usepackage{bookmark}
+\usepackage{ifpdf}
+
+% Other
+
+\usepackage{anyfontsize}
 \usepackage{wasysym}
-\usepackage[dvipsnames]{xcolor}
 \usepackage{multicol}
-\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{emptypage}
+\usepackage{nextpage}
+\usepackage{wallpaper}
+
+% Headers & footers
+
+\pagestyle{fancyplain}
+
+\renewcommand{\chaptermark}[1]{\markboth{\textsc{#1}}{}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancyhf{}
+
+\lhead[\fancyplain{}{{\thepage}}]%
+      {\fancyplain{}{\nouppercase{\leftmark}}}
+\rhead[\fancyplain{}{\nouppercase{\leftmark}}]%
+      {\fancyplain{}{\thepage}}
+\lfoot[]{}
+\cfoot[]{}
+\rfoot[]{}
+
+
+% Chapter & part style
+
+\usepackage{titlesec}
+
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
+\titleformat{\chapter}[display]%
+  {\fontsize{\OPTchapterfont}{\OPTchapterfont}\fontseries{m}\fontshape{it}\selectfont}%
+  {\chaptertitlename\ \thechapter}%
+  {\OPTchapterskip}%
+  {\fontsize{\OPTchaptertitlefont}{\OPTchaptertitlefont}\fontseries{b}\fontshape{n}\selectfont}
+
+% Paragraph style
+
+%\setlength{\parskip}{0.4\baselineskip}
+%\setlength{\parindent}{0pt}
+
+% Custom commands
+
 \usepackage{berkoschool}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\Version{1.1.0-a}
+\def\Date{19.08.2016}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-\author{
-    Сашко Петров\\
-    \texttt{\normalsize alexandervpetrov@gmail.com}
-    \and
-    Валентина Мержиєвська\\
-    \texttt{\normalsize yakavoska@gmail.com}
-}
-\title{\Huge $4\times40$}
-\date{\today}
-%\date{2 грудня 2015}
+\frontmatter % Turn on arabic page numbers and unnumbered chapters
 
-\frontmatter
-\maketitle
+% Half-title, title, copyright page do not have displayed page numbers
+
+\pagestyle{empty}
+\include{front}
+
+% Add TOC to PDF Metadata but not printed TOC
+\hypertarget{toc}{}
+\bookmark[dest=toc]{\contentsname}
+\setcounter{tocdepth}{1}        % chapters and sections for the toc
 \tableofcontents
-\mainmatter
+\setcounter{tocdepth}{2}        % chapters, sections, and subsections for the
+                                % metadata of the pdf
+\cleartooddpage[\thispagestyle{empty}]
+
+\mainmatter % Turn on roman page numbers and numbered chapters
+
+% Turn on headers and footers for mainmatter (must appear after \cleartooddpage)
+\pagestyle{fancyplain}
+
 \include{src/preface}
 \include{src/1}
 \include{src/2}
 \include{src/3}
 \include{src/4}
+
 \backmatter
-% bibliography, glossary and index would go here.
+
+\pagestyle{empty}
+\include{back}
 
 \end{document}

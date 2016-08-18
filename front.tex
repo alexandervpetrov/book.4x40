@@ -1,0 +1,48 @@
+
+\newgeometry{noheadfoot,bindingoffset=0pt,top=0pt,bottom=0pt,inner=0pt,outer=0pt}
+
+% cover
+
+%\setcounter{page}{-1} % Otherwise we end up having two pages numbered 1
+\ThisLLCornerWallPaper{1.0}{\OPTfrontimage}
+\hbox{}\newpage
+
+\ifpdf
+\nopagecolor
+\else
+\pagecolor{white}
+\fi
+
+% title
+
+\def\Title{$4\times40$}
+\def\SashkoName{Сашко Петров}
+\def\SashkoEmail{alexandervpetrov@gmail.com}
+\def\ValyaName{Валентина Мержиєвська}
+\def\ValyaEmail{yakavoska@gmail.com}
+
+\cleartooddpage
+\hbox{}\vfill
+\begin{center}
+  \vspace*{\OPTtitleskip}
+  {\fontsize{\OPTtitletitlefont}{\OPTtitletitlefont}\fontseries{b}\selectfont%
+  \Title}\par
+  \vspace*{\OPTtitleskip}
+  {\fontsize{\OPTauthorfont}{\OPTauthorfont}\fontshape{n}\selectfont%
+  \SashkoName\par
+  \vspace*{\OPTauthorinsideskip}
+  \ValyaName\par
+  }
+  \vspace*{\OPTauthorskip}
+  {\fontsize{\OPTversionfont}{\OPTversionfont}\fontshape{n}\selectfont%
+  Версія \Version\par
+  \vspace*{\OPTversioninsideskip}
+  \Date\par
+  }
+\end{center}
+\vfill\hbox{}
+\clearpage
+
+% back to normal page geometry
+
+\restoregeometry
