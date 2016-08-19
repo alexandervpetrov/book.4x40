@@ -1,3 +1,8 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Version{1.1.0-a}
+\def\Date{19.08.2016}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \documentclass[\OPTfontsize]{book}
 
 % Base setup
@@ -48,13 +53,16 @@
 
 \usepackage{anyfontsize}
 \usepackage{wasysym}
-\usepackage{multicol}
-\usepackage{fancyhdr}
-\usepackage{emptypage}
-\usepackage{nextpage}
+
+% Cover
+
 \usepackage{wallpaper}
 
 % Headers & footers
+
+\usepackage{fancyhdr}
+\usepackage{emptypage}
+\usepackage{nextpage}
 
 \pagestyle{fancyplain}
 
@@ -73,7 +81,7 @@
 \rfoot[]{}
 
 
-% Chapter & part style
+% Chapters & parts
 
 \usepackage{titlesec}
 
@@ -85,19 +93,49 @@
   {\OPTchapterskip}%
   {\fontsize{\OPTchaptertitlefont}{\OPTchaptertitlefont}\fontseries{b}\fontshape{n}\selectfont}
 
-% Paragraph style
+% TOC
 
-%\setlength{\parskip}{0.4\baselineskip}
-%\setlength{\parindent}{0pt}
+\usepackage[titles]{tocloft}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
+% Tables
+
+\usepackage{multicol}
+
+\renewcommand{\arraystretch}{1.5}
+
+% Lists
+
+\usepackage{enumitem}
+\setlist{topsep=4pt, partopsep=4pt, parsep=2pt, itemsep=2pt, listparindent=\parindent}
+\setlist[enumerate,1]{label=\arabic*)}
+
+% Paragraphs
+
+% vertical spacing instead of indentation
+% \setlength{\parskip}{0.4\baselineskip}
+% \setlength{\parindent}{0pt}
+
+% Images
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\graphicspath{ {./images/} }
 
 % Custom commands
 
-\usepackage{berkoschool}
+\newcounter{problem}[chapter]
+\newcommand{\problem}{%
+    \medskip\medskip%
+    \par\noindent\addtocounter{problem}{1}%
+    \textbf{\large\color{Bittersweet}\arabic{chapter}.\arabic{problem}. }%
+}
+\newcommand{\problemname}[1]{\textbf{#1}.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\def\Version{1.1.0-a}
-\def\Date{19.08.2016}
+\newcommand{\hiddendigit}{\blacklozenge}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -111,6 +149,7 @@
 \include{front}
 
 % Add TOC to PDF Metadata but not printed TOC
+\cleartooddpage
 \hypertarget{toc}{}
 \bookmark[dest=toc]{\contentsname}
 \setcounter{tocdepth}{1}        % chapters and sections for the toc
