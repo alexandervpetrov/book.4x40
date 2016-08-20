@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\Version{1.1.0-a}
-\def\Date{19.08.2016}
+\def\Date{20.08.2016}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[\OPTfontsize]{book}
@@ -18,7 +18,7 @@
 \usepackage[
   papersize={\OPTpagesize},
   twoside,
-%  includehead,
+  % includehead,
   top=\OPTtopmargin,
   bottom=\OPTbottommargin,
   inner=\OPTinnermargin,
@@ -26,13 +26,13 @@
   bindingoffset=\OPTbindingoffset,
   headheight=\OPTheadheight,
   headsep=\OPTheadsep,
-%  showframe
+  % showframe
 ]{geometry}
 
 % Colors & PDF
 
 \usepackage[dvipsnames,table]{xcolor}
-%\definecolor{linkcolor}{rgb}{\OPTlinkcolor}
+% \definecolor{linkcolor}{rgb}{\OPTlinkcolor}
 
 \usepackage[pdfencoding=unicode]{hyperref}
 \hypersetup{
@@ -67,19 +67,22 @@
 \pagestyle{fancyplain}
 
 \renewcommand{\chaptermark}[1]{\markboth{\textsc{#1}}{}}
+
+\fancypagestyle{fancyplain}{%
+  \fancyhead{}
+  \fancyhead[LE,RO]{\nouppercase{\leftmark}}
+  \fancyfoot{}
+  \fancyfoot[LE,RO]{\thepage}
+}
+
+\fancypagestyle{plain}{%
+  \fancyhead{}
+  \fancyfoot{}
+  \fancyfoot[LE,RO]{\thepage}
+}
+
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-
-\fancyhf{}
-
-\lhead[\fancyplain{}{{\thepage}}]%
-      {\fancyplain{}{\nouppercase{\leftmark}}}
-\rhead[\fancyplain{}{\nouppercase{\leftmark}}]%
-      {\fancyplain{}{\thepage}}
-\lfoot[]{}
-\cfoot[]{}
-\rfoot[]{}
-
 
 % Chapters & parts
 
@@ -141,27 +144,20 @@
 
 \begin{document}
 
-\frontmatter % Turn on arabic page numbers and unnumbered chapters
-
-% Half-title, title, copyright page do not have displayed page numbers
-
 \pagestyle{empty}
+\frontmatter
+
 \include{front}
 
 % Add TOC to PDF Metadata but not printed TOC
-\cleartooddpage
 \hypertarget{toc}{}
 \bookmark[dest=toc]{\contentsname}
-\setcounter{tocdepth}{1}        % chapters and sections for the toc
+\setcounter{tocdepth}{1}
 \tableofcontents
-\setcounter{tocdepth}{2}        % chapters, sections, and subsections for the
-                                % metadata of the pdf
-\cleartooddpage[\thispagestyle{empty}]
+\setcounter{tocdepth}{2}
 
-\mainmatter % Turn on roman page numbers and numbered chapters
-
-% Turn on headers and footers for mainmatter (must appear after \cleartooddpage)
 \pagestyle{fancyplain}
+\mainmatter
 
 \include{src/preface}
 \include{src/1}
@@ -169,9 +165,9 @@
 \include{src/3}
 \include{src/4}
 
+\pagestyle{empty}
 \backmatter
 
-\pagestyle{empty}
 \include{back}
 
 \end{document}
