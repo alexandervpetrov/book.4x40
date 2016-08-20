@@ -144,20 +144,17 @@
 
 \begin{document}
 
+\pagenumbering{arabic}
+
 \pagestyle{empty}
-\frontmatter
 
-\include{front}
+\include{cover-front}
 
-% Add TOC to PDF Metadata but not printed TOC
-\hypertarget{toc}{}
-\bookmark[dest=toc]{\contentsname}
-\setcounter{tocdepth}{1}
+\include{titlepage}
+
 \tableofcontents
-\setcounter{tocdepth}{2}
 
 \pagestyle{fancyplain}
-\mainmatter
 
 \include{src/preface}
 \include{src/1}
@@ -166,8 +163,7 @@
 \include{src/4}
 
 \pagestyle{empty}
-\backmatter
 
-\include{back}
+\include{cover-back}
 
 \end{document}
