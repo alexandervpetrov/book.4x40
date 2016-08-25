@@ -1,3 +1,9 @@
+
+### Jekyll ###
+_site/
+.sass-cache/
+.jekyll-metadata
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
