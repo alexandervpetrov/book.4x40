@@ -22,41 +22,39 @@ layout: main
     <h1 class="mdl-typography--display-3">4&nbsp;&times;&nbsp;40</h1>
     <h2 class="mdl-typography--display-1">Збірка завдань з&nbsp;математики</h2>
     <p>
+      <span class="book-version">Версія {{ site.book.version }} від {{ site.book.date }}</span>
+    <p>
       У&nbsp;книгу зібрані завдання, які пропонувалися дітям протягом навчання
       у&nbsp;проекті <a href="http://berkoschool.kiev.ua">БеркоШко</a>
       з&nbsp;1 по 4 клас (2011&ndash;2014).
     <ul class="book-links">
       <li>
         <a
-          href="https://goo.gl/forms/pY5cnvqZKyt7HI6U2"
+          href="{{ site.book.buy.url }}"
           class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
         >Придбати друковане видання</a>
-        <span class="book-link-details"
-        >[XX сторінки, формат паперу А5, гнучка обкладинка]</span>
+        <span class="book-link-details">[{{ site.book.buy.details }}]</span>
       <li>
         <a
-          href="404.pdf"
+          href="{{ site.book.online.url }}"
           download
           class="mdl-typography--title"
         >Завантажити PDF для перегляду з екрану</a>
-        <span class="book-link-details"
-        >[XX сторінки, формат паперу XxX, у кольорі, обкладинка]</span>
+        <span class="book-link-details">[{{ site.book.online.details }}]</span>
       <li>
         <a
-          href="404.pdf"
+          href="{{ site.book.ebook.url }}"
           download
           class="mdl-typography--title"
         >Завантажити PDF для електронної книжки</a>
-        <span class="book-link-details"
-        >[XX сторінки, формат паперу XxX, малі поля, без обкладинки]</span>
+        <span class="book-link-details">[{{ site.book.ebook.details }}]</span>
       <li>
         <a
-          href="404.pdf"
+          href="{{ site.book.a5.url }}"
           download
           class="mdl-typography--title"
         >Завантажити PDF для друку на А5</a>
-        <span class="book-link-details"
-        >[XX сторінки, формат паперу А5, у кольорі, обкладинка]</span>
+        <span class="book-link-details">[{{ site.book.a5.details }}]</span>
     </ul>
     <h2 class="mdl-typography--headline">Про книгу</h2>
     <p>
