@@ -24,19 +24,19 @@ baseurl: "/book.4x40" # the subpath of your site, e.g. /blog
 url: "http://alexandervpetrov.github.io" # the base hostname & protocol for your site
 
 book:
-  version: "1.1.0"
-  date: "23.08.2016"
+  version: "1.2.0"
+  date: "28.10.2016"
   buy:
     url: "https://goo.gl/forms/pY5cnvqZKyt7HI6U2"
     details: "64 сторінки, формат А5, гнучка обкладинка"
   a5:
-    url: "https://github.com/alexandervpetrov/book.4x40/files/440111/4x40-book.v1.1.0.2016-08-23.0bd10d4.a5.pdf"
+    url: "https://github.com/alexandervpetrov/book.4x40/files/557687/4x40-book.v1.2.0.2016-10-28.71d308b.a5.pdf"
     details: "64 сторінки, формат А5, у кольорі, обкладинка"
   ebook:
-    url: "https://github.com/alexandervpetrov/book.4x40/files/440109/4x40-book.v1.1.0.2016-08-23.0bd10d4.ebook.pdf"
+    url: "https://github.com/alexandervpetrov/book.4x40/files/557689/4x40-book.v1.2.0.2016-10-28.71d308b.ebook.pdf"
     details: "60 сторінок, формат 120 x 160 мм, малі поля, у кольорі, без обкладинки"
   online:
-    url: "https://github.com/alexandervpetrov/book.4x40/files/440112/4x40-book.v1.1.0.2016-08-23.0bd10d4.online.pdf"
+    url: "https://github.com/alexandervpetrov/book.4x40/files/557688/4x40-book.v1.2.0.2016-10-28.71d308b.online.pdf"
     details: "49 сторінок, формат Letter, у кольорі, без обкладинки"
 
 # twitter_username: jekyllrb
